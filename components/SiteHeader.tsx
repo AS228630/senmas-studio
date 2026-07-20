@@ -5,8 +5,8 @@ import { Button } from "@/components/Button";
 const NAV_ITEMS = [
   { label: "Startseite", href: "/" },
   { label: "Leistungen", href: "/#leistungen" },
-  { label: "Projekte", href: "/#projekte" },
-  { label: "Prozess", href: "/#prozess" },
+  { label: "Projekte", href: "/projekte" },
+  { label: "Preise", href: "/preise" },
   { label: "Über uns", href: "/#ueber-uns" },
   { label: "Kontakt", href: "/#kontakt" },
 ];
