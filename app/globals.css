@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@import "@fontsource/manrope/700.css";
+@import "@fontsource/manrope/800.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+:root {
+  --color-bg: #080f19;
+  --color-bg-raised: #0d1520;
+  --color-card: #131a24;
+  --color-input: #0e1420;
+  --color-border: #1d2733;
+  --color-text: #e7eaef;
+  --color-text-muted: #8b93a1;
+  --color-text-faint: #5b6472;
+  --color-red: #c41d20;
+  --color-red-hover: #a91619;
+  --color-red-soft: #c41d201a;
+  --color-green: #22c55e;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-raised: var(--color-bg-raised);
+  --color-card: var(--color-card);
+  --color-input: var(--color-input);
+  --color-border: var(--color-border);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-faint: var(--color-text-faint);
+  --color-red: var(--color-red);
+  --color-red-hover: var(--color-red-hover);
+  --color-red-soft: var(--color-red-soft);
+  --color-green: var(--color-green);
+  --font-display: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+  }
+  .input {
+    width: 100%;
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    font-size: 13px;
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .input::placeholder {
+    color: var(--color-text-faint);
+  }
+  .input:focus-visible {
+    border-color: var(--color-red);
+  }
+}
