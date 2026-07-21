@@ -114,7 +114,10 @@
 ## ۵. قدم‌های باقی‌مانده
 
 ### 🔴 فوری — برای فعال‌سازی کامل سیستم
-- [ ] اجرای دو migration در Supabase SQL Editor (پروژه‌ی Supabase جدید هنوز وصل نشده)
+
+⚠️ **اصل مهم:** این پروژه باید یه پروژه‌ی Supabase **کاملاً جدا و مستقل** داشته باشه — نه مشترک با CertCoach، Outlet Möbel، یا PrimeClean Service. دلیل: پلن رایگان Supabase سقف ۵۰۰ مگابایت داره؛ اشتراک‌گذاری بین چند پروژه باعث پر شدن سریع فضا و تداخل داده‌ها می‌شه.
+
+- [ ] اجرای دو migration در Supabase SQL Editor (پروژه‌ی Supabase جدید و اختصاصی هنوز وصل نشده)
 - [ ] ست‌کردن env vars (`.env.example` رو ببین) در Vercel: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `HR_OWNER_EMAIL`, `HR_ADMIN_ACTION_SECRET`
 - [ ] ساخت دامنه‌ی verified در Resend برای ارسال ایمیل واقعی
 
