@@ -1,41 +1,43 @@
-# Synthesized modern corporate bed: warm pad chords + soft pulse + light hats. 48kHz stereo.
+# Synthesized upbeat promo bed (120 BPM): pads, driving bass, four-on-the-floor kick,
+# claps on 2 and 4, 16th hats and a plucked arpeggio. 48kHz stereo.
 import numpy as np, json, wave
 tl = json.load(open("timeline.json")); T = tl["total"] + 0.5
 SR = 48000; n = int(T * SR); t = np.arange(n) / SR
-bpm = 100; beat = 60 / bpm; bar = beat * 4
-def note(m): return 440 * 2 ** ((m - 69) / 12)
-prog = [[57, 60, 64, 69], [53, 57, 60, 65], [48, 52, 55, 60], [55, 59, 62, 67]]  # Am F C G
+bpm = 120; beat = 60 / bpm; bar = beat * 4
+rng = np.random.default_rng(5)
+note = lambda m: 440 * 2 ** ((m - 69) / 12)
+prog = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]]  # Am F C G
 L = np.zeros(n); R = np.zeros(n)
-for i in range(int(T / (bar * 2)) + 1):
-    s0 = i * bar * 2; ch = prog[i % 4]
-    a, b = int(s0 * SR), min(n, int((s0 + bar * 2 + 0.6) * SR))
-    if a >= n: break
-    tt = t[a:b] - s0
-    env = np.minimum(1, tt / 0.8) * np.exp(-np.maximum(0, tt - bar * 2) * 4)
-    for k, m in enumerate(ch):
+def put(start, sig, pan=0.5):
+    a = int(start * SR)
+    if a >= n: return
+    b = min(n, a + len(sig)); L[a:b] += sig[:b - a] * (1 - pan) * 2 ** .5 * .7; R[a:b] += sig[:b - a] * pan * 2 ** .5 * .7
+def seg(d): return np.arange(int(d * SR)) / SR
+nbars = int(T / bar) + 1
+for i in range(nbars):
+    s0 = i * bar; ch = prog[(i // 2) % 4]
+    u = seg(bar + .3); env = np.minimum(1, u / .3) * np.exp(-np.maximum(0, u - bar) * 6)
+    for k, m in enumerate(ch):  # pad
         f = note(m)
-        v = (np.sin(2*np.pi*f*tt) + 0.35*np.sin(2*np.pi*f*2.003*tt) + 0.15*np.sin(2*np.pi*f*3*tt)) * env * 0.05
-        L[a:b] += v * (0.6 + 0.1*k); R[a:b] += v * (0.9 - 0.1*k)
-    # bass on each beat
-    for j in range(8):
-        bs = s0 + j * beat; ba, bb = int(bs * SR), min(n, int((bs + beat) * SR))
-        if ba >= n: break
-        u = t[ba:bb] - bs
-        bv = np.sin(2*np.pi*note(ch[0]-24)*u) * np.exp(-u*5) * 0.16
-        L[ba:bb] += bv; R[ba:bb] += bv
-        # soft kick
-        kk = np.sin(2*np.pi*(50 + 90*np.exp(-u*30))*u) * np.exp(-u*12) * (0.22 if j % 2 == 0 else 0.0)
-        L[ba:bb] += kk; R[ba:bb] += kk
-        # off-beat hat
-        hs = bs + beat/2; ha, hb = int(hs*SR), min(n, int((hs+0.06)*SR))
-        if ha < n:
-            hv = np.random.default_rng(j+i*8).standard_normal(hb-ha) * np.exp(-(t[ha:hb]-hs)*80) * 0.03
-            hv = np.diff(np.concatenate([[0], hv]))
-            L[ha:hb] += hv; R[ha:hb] += hv
-# riser into the intro hit + fade
-fade = np.minimum(1, t / 1.5) * np.minimum(1, (T - t) / 3.0)
-L *= fade; R *= fade
-st = np.stack([L, R], 1); st /= np.abs(st).max() / 0.8
+        put(s0, (np.sin(2*np.pi*f*u) + .3*np.sin(2*np.pi*f*2.004*u)) * env * .035, .3 + .2 * k)
+    for j in range(4):
+        bs = s0 + j * beat
+        u = seg(beat)
+        put(bs, np.sin(2*np.pi*(45 + 110*np.exp(-u*35))*u) * np.exp(-u*9) * .5)               # kick
+        put(bs + beat/2, np.tanh(3*np.sin(2*np.pi*note(ch[0]-24)*u[:int(SR*beat/2)])) * np.exp(-u[:int(SR*beat/2)]*6) * .12)  # off-beat bass
+        if j in (1, 3):
+            cu = seg(.25); clap = rng.standard_normal(len(cu)) * np.exp(-cu*22) * .16
+            put(bs, np.diff(np.concatenate([[0], clap])) * 2.2)
+        for h in range(4):
+            hu = seg(.05); hat = np.diff(np.concatenate([[0], rng.standard_normal(len(hu))])) * np.exp(-hu*90) * (.05 if h % 2 else .025)
+            put(bs + h * beat / 4, hat, .65)
+    if i >= 2:  # plucked arpeggio, enters after the intro
+        arp = [ch[0] + 12, ch[1] + 12, ch[2] + 12, ch[1] + 12]
+        for q in range(8):
+            pu = seg(beat / 2); f = note(arp[q % 4])
+            put(s0 + q * beat / 2, (np.sin(2*np.pi*f*pu) + .4*np.sin(2*np.pi*2*f*pu)) * np.exp(-pu*14) * .05, .35 if q % 2 else .65)
+fade = np.minimum(1, t / 1.0) * np.minimum(1, (T - t) / 3.0)
+st = np.stack([L * fade, R * fade], 1); st /= np.abs(st).max() / 0.85
 w = wave.open("music.wav", "wb"); w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
 w.writeframes((st * 32767).astype("<i2").tobytes()); w.close()
 print("music", T)
