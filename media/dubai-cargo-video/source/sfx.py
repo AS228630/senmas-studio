@@ -2,8 +2,10 @@
 import numpy as np, json, wave
 tl = json.load(open("timeline.json"))
 SR = 48000
-w = wave.open("music.wav"); mus = np.frombuffer(w.readframes(w.getnframes()), "<i2").reshape(-1, 2).astype(float) / 32767
+import sys
+w = wave.open(sys.argv[1] if len(sys.argv) > 1 else "music.wav"); mus = np.frombuffer(w.readframes(w.getnframes()), "<i2").reshape(-1, 2).astype(float) / 32767
 n = len(mus); out = mus * 0.9
+W_GAIN = float(sys.argv[2]) if len(sys.argv) > 2 else 1.0
 rng = np.random.default_rng(1)
 def add(start, sig):
     a = int(start * SR); b = min(n, a + len(sig))
@@ -25,7 +27,7 @@ def hit():
     return np.stack([s, s], 1)
 W = whoosh()
 for s in tl["scenes"][1:]:
-    add(s["start"] - 0.45, W)
+    add(s["start"] - 0.45, W * W_GAIN)
 add(0.25, hit()); add(tl["scenes"][-1]["start"], hit() * .8)
 out /= np.abs(out).max() / 0.89
 w = wave.open("soundtrack.wav", "wb"); w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)

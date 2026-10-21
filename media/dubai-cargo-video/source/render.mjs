@@ -1,7 +1,7 @@
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import fs from 'fs';
 const sc = JSON.parse(fs.readFileSync('scenes_timed.json', 'utf8'));
-const LEAD = 0.55, TAIL = 0.9;
+const LEAD = 0.6, TAIL = 1.3;
 let t = 0;
 for (const s of sc) {
   const lead = s.id === 'intro' ? 1.8 : LEAD, tail = s.id === 'outro' ? 3.0 : TAIL;
