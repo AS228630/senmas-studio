@@ -44,6 +44,7 @@ canvas#fx { position: absolute; inset: 0; }
   background: rgba(6,18,43,.72); border: 2px solid rgba(245,197,66,.6); font-size: 32px; font-weight: 700; }
 #foot { position: absolute; bottom: 92px; left: 0; right: 0; display: flex; justify-content: center; opacity: 0; }
 #bar { position: absolute; bottom: 0; left: 0; height: 10px; background: linear-gradient(90deg, var(--gold3), var(--gold1)); box-shadow: 0 0 20px var(--gold2); }
+.mlabel { font-family: Vazir; font-weight: 800; paint-order: stroke; stroke: rgba(4,12,32,.85); stroke-width: 8px; }
 #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(95% 62% at 50% 50%, transparent 55%, rgba(0,0,0,.5) 100%); }
 </style>
 </head>
@@ -66,8 +67,8 @@ canvas#fx { position: absolute; inset: 0; }
       <rect x="180" y="20" width="330" height="150" rx="10" fill="url(#navyg)" stroke="#f5c542" stroke-width="3"/>
       <rect x="180" y="150" width="330" height="8" fill="#f5c542" opacity=".7"/>
       <use href="#logo" x="205" y="45" width="80" height="80"/>
-      <text x="300" y="95" font-family="Vazir" font-weight="800" font-size="40" fill="url(#g)" direction="ltr" text-anchor="start">Dubai Int'l</text>
-      <text x="302" y="128" font-family="Vazir" font-weight="600" font-size="20" fill="#dfe6fb" direction="ltr" text-anchor="start">EXPRESS &amp; CARGO</text>
+      <text x="395" y="98" font-family="Vazir" font-weight="900" font-size="38" fill="url(#g)" text-anchor="middle">برادران صداقت</text>
+      <text x="395" y="130" font-family="Vazir" font-weight="600" font-size="18" fill="#dfe6fb" direction="ltr" text-anchor="middle">SEDAGHAT BROTHERS · CARGO</text>
       <path d="M170 60 h-85 q-20 0 -32 18 l-30 46 q-8 12 -8 26 v20 h155 z" fill="#f2f5fb"/>
       <path d="M148 76 h-58 q-10 0 -16 9 l-22 34 h96 z" fill="#2a4a86"/>
       <rect x="15" y="150" width="155" height="20" fill="#c9d2e6"/>
@@ -93,45 +94,25 @@ canvas#fx { position: absolute; inset: 0; }
     <div class="a" data-in="0.25" data-fx="spin" style="position:absolute;left:360px;top:490px;width:360px;height:360px;filter:drop-shadow(0 0 50px rgba(245,197,66,.45))">
       <svg width="360" height="360"><use href="#logo"/></svg>
     </div>
-    <div class="title gold shadow a" data-in="0.9" data-fx="up" style="top:950px;font-size:112px;direction:ltr;letter-spacing:2px">Dubai Int'l</div>
+    <div class="title gold shadow a" data-in="0.9" data-fx="up" style="top:930px;font-size:124px">برادران صداقت</div>
     <div class="line a" data-in="1.2" data-fx="wipe" style="left:220px;right:220px;top:1110px"></div>
-    <div class="sub a" data-in="1.4" data-fx="up" style="top:1140px;font-size:40px;direction:ltr;letter-spacing:10px;color:#dfe6fb">EXPRESS &amp; CARGO</div>
-    <div class="title a" data-in="2.0" data-fx="up" style="top:1260px;font-size:70px">دبی اینترنشنال</div>
-    <div class="sub a" data-in="2.3" data-fx="up" style="top:1370px;font-size:50px;color:var(--gold2)">اکسپرس و کارگو</div>
+    <div class="sub a" data-in="1.4" data-fx="up" style="top:1140px;font-size:38px;direction:ltr;letter-spacing:9px;color:#dfe6fb">SEDAGHAT BROTHERS</div>
+    <div class="sub a" data-in="2.0" data-fx="up" style="top:1250px;font-size:56px;color:var(--gold2)">اکسپرس و کارگو</div>
   </div>
 
   <!-- 2. ROUTE -->
   <div class="scene" id="s-route">
-    <div class="title shadow a" data-in="0.2" data-fx="up" style="top:300px;font-size:92px">انتقال اموال شما</div>
-    <div class="sub a" data-in="0.6" data-fx="up" style="top:430px;font-size:56px">از <span class="gold" style="font-weight:900">ایران</span> به <span class="gold" style="font-weight:900">افغانستان</span></div>
-    <div class="a" data-in="0.8" data-fx="up" style="position:absolute;left:70px;right:70px;top:640px;height:620px">
-      <div class="glass" style="position:absolute;inset:0;overflow:hidden">
-        <div style="position:absolute;left:30px;right:30px;top:520px;height:8px;border-radius:8px;background:#2a3d66"></div>
-        <div id="roadDash" style="position:absolute;left:30px;right:30px;top:522px;height:4px;background:repeating-linear-gradient(90deg,#f5c542 0 40px,transparent 40px 80px);opacity:.8"></div>
-        <div id="routeTruck" style="position:absolute;top:310px;left:0;width:520px;height:220px">
-          <svg width="520" height="220" viewBox="0 0 520 220" >
-            <use href="#truck"/>
-            <g class="wheel" data-cx="425" data-cy="178"><circle cx="425" cy="178" r="28" fill="#111"/><circle cx="425" cy="178" r="13" fill="#9aa6bf"/><path d="M425 165 v26 M412 178 h26" stroke="#444" stroke-width="4"/></g>
-            <g class="wheel" data-cx="355" data-cy="178"><circle cx="355" cy="178" r="28" fill="#111"/><circle cx="355" cy="178" r="13" fill="#9aa6bf"/><path d="M355 165 v26 M342 178 h26" stroke="#444" stroke-width="4"/></g>
-            <g class="wheel" data-cx="90" data-cy="178"><circle cx="90" cy="178" r="28" fill="#111"/><circle cx="90" cy="178" r="13" fill="#9aa6bf"/><path d="M90 165 v26 M77 178 h26" stroke="#444" stroke-width="4"/></g>
-          </svg>
-        </div>
-      </div>
-      <div style="position:absolute;right:60px;top:60px;width:200px;text-align:center">
-        <svg width="180" height="120" style="border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.5)"><use href="#flagIR"/></svg>
-        <div style="font-size:46px;font-weight:800;margin-top:10px">ایران</div>
-      </div>
-      <div style="position:absolute;left:60px;top:60px;width:200px;text-align:center">
-        <svg width="180" height="120" style="border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.5)"><use href="#flagAF"/></svg>
-        <div style="font-size:46px;font-weight:800;margin-top:10px">افغانستان</div>
-      </div>
-      <svg style="position:absolute;left:270px;top:100px;width:400px;height:120px" viewBox="0 0 400 120">
-        <path id="routePath" d="M390 70 Q200 -30 10 70" fill="none" stroke="#f5c542" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/>
-        <circle id="routeDot" r="15" fill="#fff4c2" style="filter:drop-shadow(0 0 12px #f5c542)"/>
-      </svg>
+    <div class="title shadow a" data-in="0.2" data-fx="up" style="top:250px;font-size:88px">انتقال اموال شما</div>
+    <div class="sub a" data-in="0.5" data-fx="up" style="top:375px;font-size:52px">از <span class="gold" style="font-weight:900">تهران</span> به <span class="gold" style="font-weight:900">سراسر افغانستان</span></div>
+    <div class="a glass" data-in="0.6" data-fx="zoom" style="position:absolute;left:40px;top:520px;width:1000px;height:640px;border-radius:44px;overflow:hidden;background:radial-gradient(120% 100% at 50% 40%,rgba(30,70,150,.35),rgba(4,12,32,.85))">
+      <svg id="mapBoth" width="940" height="550" viewBox="0 0 940 550" style="position:absolute;left:30px;top:45px;overflow:visible"></svg>
     </div>
-    <div class="a" data-in="1.6" data-fx="zoom" style="position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center">
-      <div class="goldpill" style="font-size:52px">سریع · امن · مطمئن</div>
+    <div class="a" data-in="1.0" data-fx="up" style="position:absolute;top:1200px;left:0;right:0;display:flex;justify-content:center;gap:40px">
+      <div class="pill" style="font-size:40px;padding:14px 34px"><span style="width:34px;height:34px;border-radius:8px;background:linear-gradient(180deg,#3d6fd0,#1b3f8c);border:2px solid #7fa6ee"></span>ایران</div>
+      <div class="pill" style="font-size:40px;padding:14px 34px"><span style="width:34px;height:34px;border-radius:8px;background:linear-gradient(180deg,#f5c542,#a8761a);border:2px solid #fff4c2"></span>افغانستان</div>
+    </div>
+    <div class="a" data-in="ROUTE_T" data-fx="zoom" style="position:absolute;top:1360px;left:0;right:0;display:flex;justify-content:center">
+      <div class="goldpill" style="font-size:54px">سریع · امن · مطمئن</div>
     </div>
   </div>
 
@@ -160,6 +141,16 @@ canvas#fx { position: absolute; inset: 0; }
     </div>
   </div>
 
+  <!-- CARGO TYPES -->
+  <div class="scene" id="s-cargo">
+    <div class="title gold shadow a" data-in="0" data-fx="up" style="top:230px;font-size:88px">پذیرش انواع بار</div>
+    <div class="line a" data-in="0.3" data-fx="wipe" style="left:280px;right:280px;top:365px"></div>
+    <div id="cargoGrid"></div>
+    <div class="a" data-in="CARGO_T" data-fx="zoom" style="position:absolute;top:1480px;left:0;right:0;display:flex;justify-content:center">
+      <div class="goldpill" style="font-size:58px">هر نوع بار پذیرفته می‌شود!</div>
+    </div>
+  </div>
+
   <!-- 5. ITEMS -->
   <div class="scene" id="s-items">
     <div class="title gold shadow a" data-in="0" data-fx="up" style="top:230px;font-size:84px">لوازم خانگی شما</div>
@@ -177,14 +168,10 @@ canvas#fx { position: absolute; inset: 0; }
   <!-- 7. CITIES -->
   <div class="scene" id="s-cities">
     <div class="title gold shadow a" data-in="0" data-fx="up" style="top:220px;font-size:84px">ارسال به سراسر افغانستان</div>
-    <svg style="position:absolute;left:0;top:0;width:1080px;height:1920px" viewBox="0 0 1080 1920">
-      <path id="cityPath" d="M540 480 C 700 560, 760 720, 690 840 C 610 990, 420 1030, 420 1200 C 420 1370, 560 1420, 540 1560" fill="none" stroke="rgba(245,197,66,.22)" stroke-width="10" stroke-linecap="round"/>
-      <path id="cityPathLit" d="M540 480 C 700 560, 760 720, 690 840 C 610 990, 420 1030, 420 1200 C 420 1370, 560 1420, 540 1560" fill="none" stroke="url(#gh)" stroke-width="10" stroke-linecap="round"/>
-    </svg>
-    <div id="cityStops"></div>
-    <div id="cityTruck" style="position:absolute;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;background:radial-gradient(circle,#fff4c2,#f5c542 60%,#c8921a);box-shadow:0 0 40px #f5c542;display:grid;place-items:center">
-      <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#0a1a3a" stroke-width="2" stroke-linejoin="round"><path d="M2 6h11v9H2zM13 9h4l3 3v3h-7z"/><circle cx="6" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>
+    <div class="a glass" data-in="0.2" data-fx="zoom" style="position:absolute;left:40px;top:380px;width:1000px;height:860px;border-radius:44px;overflow:hidden;background:radial-gradient(120% 100% at 50% 40%,rgba(30,70,150,.35),rgba(4,12,32,.85))">
+      <svg id="mapAfg" width="940" height="742" viewBox="0 0 940 742" style="position:absolute;left:30px;top:60px;overflow:visible"></svg>
     </div>
+    <div id="cityLabels"></div>
   </div>
 
   <!-- 8. CONTACT -->
@@ -244,7 +231,7 @@ canvas#fx { position: absolute; inset: 0; }
     <div class="a" data-in="0" data-fx="spin" style="position:absolute;left:390px;top:300px;width:300px;height:300px;filter:drop-shadow(0 0 50px rgba(245,197,66,.45))">
       <svg width="300" height="300"><use href="#logo"/></svg>
     </div>
-    <div class="title gold shadow a" data-in="0.2" data-fx="up" style="top:640px;font-size:76px;direction:ltr">Dubai Int'l</div>
+    <div class="title gold shadow a" data-in="0.2" data-fx="up" style="top:630px;font-size:84px">برادران صداقت</div>
     <div class="title gold shadow a" data-in="0.4" data-fx="reveal" style="top:800px;font-size:110px">اعتماد شما<br>سرمایه ماست</div>
     <div class="line a" data-in="1.0" data-fx="wipe" style="left:160px;right:160px;top:1130px"></div>
     <div class="sub a" data-in="1.2" data-fx="up" style="top:1180px;font-size:50px">محصول بار عبدالقدیر نیازی</div>
@@ -323,12 +310,13 @@ canvas#fx { position: absolute; inset: 0; }
     </div>
   </div>
 
-  <div id="top"><div class="chip"><svg width="62" height="62"><use href="#logo"/></svg>Dubai Int'l · Express &amp; Cargo</div></div>
+  <div id="top"><div class="chip" style="direction:rtl;padding:12px 14px 12px 34px"><svg width="62" height="62"><use href="#logo"/></svg>برادران صداقت · اکسپرس و کارگو</div></div>
   <div id="foot"><div class="pill" style="font-size:46px;padding:14px 42px;direction:ltr"><span class="ico" style="color:var(--gold2)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><span class="num" style="letter-spacing:1px">0919 514 9328 · 0919 457 7025</span></div></div>
   <div id="vignette"></div>
   <div id="bar"></div>
 </div>
 
+<script src="geo.js"></script>
 <script>
 const S = window.SCENES, TOTAL = window.TOTAL;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
@@ -352,6 +340,11 @@ const ICONS = {
   stove: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 8h18"/><circle cx="7" cy="5.5" r=".8"/><circle cx="10.5" cy="5.5" r=".8"/><rect x="6" y="11" width="12" height="7" rx="1"/>',
   vacuum: '<path d="M14 3c-3 0-4 2-4 5v6"/><path d="M10 14H6a3 3 0 0 0-3 3v1h9v-1a3 3 0 0 0-2-3"/><circle cx="17" cy="17" r="4"/><circle cx="17" cy="17" r="1.2"/>',
   washer: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 7h16"/><circle cx="12" cy="14" r="4.5"/><circle cx="8" cy="4.5" r=".8"/>',
+  briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+  sofa: '<path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2z"/><path d="M5 18v2M19 18v2"/>',
+  shirt: '<path d="M8 3l4 3 4-3 5 4-3 4-2-1v11H8V10l-2 1-3-4z"/>',
+  gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+  bricks: '<rect x="2" y="4" width="20" height="16" rx="1"/><path d="M2 9.3h20M2 14.6h20M8 4v5.3M16 4v5.3M12 9.3v5.3M8 14.6V20M16 14.6V20"/>',
   plug: '<path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0zM12 17v5"/>',
 };
 const svg = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICONS[k]}</svg>`;
@@ -375,20 +368,6 @@ const spread = (id, n, from = 0, to = 1, lead = 0.2) => Array.from({ length: n }
     const col = i % 2, row = Math.floor(i / 2);
     return `<div class="card glass a" data-in="${ds[i]}" data-fx="zoom" style="right:${80 + col * 470}px;top:${450 + row * 410}px;width:450px;height:370px">
       <div class="badge">${svg(k)}</div><div class="t">${t}</div></div>`;
-  }).join('');
-
-  const path = document.getElementById('cityPath'), L = path.getTotalLength();
-  // stops sit on the path's nodes; labels go on the outer side of each bend
-  const near = (x, y) => { let best = 0, bd = 1e9; for (let i = 0; i <= 400; i++) { const q = path.getPointAtLength(L * i / 400), d = (q.x - x) ** 2 + (q.y - y) ** 2; if (d < bd) { bd = d; best = i / 400; } } return best; };
-  const cities = [['کابل', 0, 'پایتخت', 'l'], ['هرات', near(690, 840), 'غرب', 'r'], ['مزارشریف', near(420, 1200), 'شمال', 'l'], ['قندهار', 1, 'جنوب', 'r']];
-  const cs = window.CITY_T = spread('cities', 4, 0.42, 1.0, 0.25);
-  document.getElementById('cityStops').innerHTML = cities.map(([t, f, d, s], i) => {
-    const p = path.getPointAtLength(L * f), onRight = s === 'l';
-    const side = onRight ? `right:${1080 - p.x + 75}px` : `left:${p.x + 75}px`;
-    return `<div class="a" data-in="${cs[i]}" data-fx="zoom" style="position:absolute;left:${p.x - 55}px;top:${p.y - 135}px;width:110px;height:140px">
-        <svg viewBox="0 0 24 30" width="110" height="140" style="filter:drop-shadow(0 10px 18px rgba(0,0,0,.6))"><use href="#pin"/></svg></div>
-      <div class="a glass" data-in="${cs[i] + 0.15}" data-fx="${onRight ? 'right' : 'left'}" style="position:absolute;${side};top:${p.y - 100}px;padding:14px 36px;border-radius:26px;text-align:center">
-        <div style="font-size:60px;font-weight:900;line-height:1.3;white-space:nowrap">${t}</div><div style="font-size:32px;color:var(--gold2);font-weight:700">${d}</div></div>`;
   }).join('');
 
   const c = sceneOf('contact'), o = c.voStart - c.start;
@@ -423,6 +402,74 @@ const spread = (id, n, from = 0, to = 1, lead = 0.2) => Array.from({ length: n }
       <div class="tdot" style="position:absolute;right:8px;top:6px;width:44px;height:44px;border-radius:50%;border:4px solid var(--gold2);background:#0a1430"></div>
       ${i < 3 ? '<div style="position:absolute;right:28px;top:52px;width:4px;height:84px;background:rgba(245,197,66,.4)"></div>' : ''}
       <div style="font-size:36px;font-weight:800">${t}</div><div style="font-size:28px;color:#aab6d6">${d}</div></div>`).join('');
+
+  // ---- maps ----
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (tag, attrs, parent, html) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (html) e.textContent = html; parent.appendChild(e); return e; };
+  function baseMap(svgEl, G, gid) {
+    svgEl.innerHTML = `<defs>
+      <linearGradient id="iranF${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d6fd0" stop-opacity=".85"/><stop offset="1" stop-color="#14306e" stop-opacity=".9"/></linearGradient>
+      <linearGradient id="afgF${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5c542" stop-opacity=".55"/><stop offset="1" stop-color="#8a5d10" stop-opacity=".6"/></linearGradient>
+      <filter id="glow${gid}" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <pattern id="dots${gid}" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="rgba(255,255,255,.12)"/></pattern></defs>`;
+    mk('path', { d: G.others, fill: '#0c1b3d', stroke: 'rgba(160,185,240,.18)', 'stroke-width': 1.2 }, svgEl);
+    mk('path', { d: G.iran, fill: `url(#iranF${gid})`, stroke: '#8fb2f5', 'stroke-width': 2.2, 'stroke-linejoin': 'round' }, svgEl);
+    mk('path', { d: G.iran, fill: `url(#dots${gid})` }, svgEl);
+    mk('path', { d: G.afg, fill: `url(#afgF${gid})`, stroke: '#ffd970', 'stroke-width': 3.2, 'stroke-linejoin': 'round', filter: `url(#glow${gid})` }, svgEl);
+    mk('path', { d: G.afg, fill: `url(#dots${gid})` }, svgEl);
+  }
+  {
+    const G = GEO.both, svgEl = document.getElementById('mapBoth'); baseMap(svgEl, G, 'b');
+    mk('text', { x: 330, y: 300, class: 'mlabel', 'font-size': 52, fill: 'rgba(255,255,255,.85)', 'text-anchor': 'middle' }, svgEl, 'ایران');
+    const [tx, ty] = G.cities.tehran;
+    const order = [['herat', 'هرات', 0, 40], ['mazar', 'مزارشریف', 0, -26], ['kabul', 'کابل', 62, 10], ['kandahar', 'قندهار', 0, 42]];
+    const t0 = rel('route', 0.25);
+    window.ROUTES = order.map(([k, name, dx, dy], i) => {
+      const [x, y] = G.cities[k], mx = (tx + x) / 2, my = Math.min(ty, y) - 110 - i * 18;
+      const path = mk('path', { d: `M${tx} ${ty} Q${mx} ${my} ${x} ${y}`, fill: 'none', stroke: 'url(#gh)', 'stroke-width': 4.5, 'stroke-linecap': 'round', filter: 'url(#glowb)' }, svgEl);
+      const L = path.getTotalLength(); path.setAttribute('stroke-dasharray', L); path.setAttribute('stroke-dashoffset', L);
+      const dot = mk('circle', { cx: x, cy: y, r: 9, fill: '#fff4c2', stroke: '#f5c542', 'stroke-width': 3, opacity: 0 }, svgEl);
+      const lbl = mk('text', { x: x + dx, y: y + dy, class: 'mlabel', 'font-size': 30, fill: '#fff', 'text-anchor': 'middle', opacity: 0 }, svgEl, name);
+      return { path, L, dot, lbl, start: t0 + i * 0.45 };
+    });
+    window.ROUTE_RUNNER = mk('circle', { r: 10, fill: '#fff', filter: 'url(#glowb)', opacity: 0 }, svgEl);
+    window.TEHRAN_RING = mk('circle', { cx: tx, cy: ty, r: 14, fill: 'none', stroke: '#8fb2f5', 'stroke-width': 3 }, svgEl);
+    mk('circle', { cx: tx, cy: ty, r: 13, fill: '#fff', stroke: '#3d6fd0', 'stroke-width': 5 }, svgEl);
+    mk('text', { x: tx, y: ty - 30, class: 'mlabel', 'font-size': 36, fill: '#fff', 'text-anchor': 'middle' }, svgEl, 'تهران');
+    document.querySelector('#s-route [data-in="ROUTE_T"]').dataset.in = (t0 + 2.6).toFixed(2);
+  }
+  {
+    const G = GEO.afg, svgEl = document.getElementById('mapAfg'); baseMap(svgEl, G, 'a');
+    // entry arrow from Iran into Herat
+    const [hx, hy] = G.cities.herat;
+    window.AFG_ARROW = mk('path', { d: `M-40 ${hy - 70} Q40 ${hy - 90} ${hx - 22} ${hy - 8}`, fill: 'none', stroke: 'url(#gh)', 'stroke-width': 6, 'stroke-linecap': 'round', 'stroke-dasharray': '16 12' }, svgEl);
+    mk('text', { x: 10, y: hy - 100, class: 'mlabel', 'font-size': 30, fill: '#8fb2f5', 'text-anchor': 'middle' }, svgEl, 'از ایران');
+    const ct = window.CITY_T = spread('cities', 4, 0.42, 1.0, 0.25);
+    const spots = [['kabul', 'کابل', 'پایتخت', 'r'], ['herat', 'هرات', 'غرب', 'b'], ['mazar', 'مزارشریف', 'شمال', 't'], ['kandahar', 'قندهار', 'جنوب', 'b']];
+    window.AFG_PINS = spots.map(([k], i) => {
+      const [x, y] = G.cities[k];
+      const g = mk('g', { opacity: 0 }, svgEl);
+      mk('ellipse', { cx: x, cy: y + 2, rx: 16, ry: 6, fill: 'rgba(0,0,0,.45)' }, g);
+      const pin = mk('use', { href: '#pin', x: x - 30, y: y - 74, width: 60, height: 75 }, g);
+      return { g, pin, t: ct[i] };
+    });
+    document.getElementById('cityLabels').innerHTML = spots.map(([k, name, d, side], i) => {
+      const [x, y] = G.cities[k], X = 70 + x, Y = 440 + y;
+      const pos = side === 'r' ? `left:${X + 40}px;top:${Y - 70}px` : side === 't' ? `left:${X - 150}px;top:${Y - 230}px;width:300px` : `left:${X - 150}px;top:${Y + 18}px;width:300px`;
+      return `<div class="a glass" data-in="${(ct[i] + 0.2).toFixed(2)}" data-fx="up" style="position:absolute;${pos};padding:10px 30px;border-radius:22px;text-align:center;background:rgba(6,18,43,.82)">
+        <div style="font-size:48px;font-weight:900;line-height:1.35;white-space:nowrap">${name}</div><div style="font-size:28px;color:var(--gold2);font-weight:700">${d}</div></div>`;
+    }).join('');
+  }
+
+  // ---- cargo types ----
+  const cg = [['بار تجاری', 'briefcase'], ['اثاثیه مهاجرین', 'sofa'], ['لوازم خانگی', 'fridge'], ['پوشاک و منسوجات', 'shirt'], ['قطعات و ماشین‌آلات', 'gear'], ['مصالح ساختمانی', 'bricks']];
+  const dc = spread('cargo', 6, 0.12, 0.8);
+  document.getElementById('cargoGrid').innerHTML = cg.map(([t, k], i) => {
+    const col = i % 2, row = Math.floor(i / 2);
+    return `<div class="card glass a" data-in="${dc[i].toFixed(2)}" data-fx="zoom" style="right:${80 + col * 470}px;top:${430 + row * 340}px;width:450px;height:310px;gap:20px">
+      <div class="badge" style="width:130px;height:130px">${svg(k)}</div><div class="t" style="font-size:42px">${t}</div></div>`;
+  }).join('');
+  document.querySelector('#s-cargo [data-in="CARGO_T"]').dataset.in = rel('cargo', 0.82).toFixed(2);
 
   let sd = 3; const r = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
   document.getElementById('windows').innerHTML = Array.from(document.querySelectorAll('#skyline rect')).flatMap(b => {
@@ -508,26 +555,32 @@ window.setTime = function (t) {
   pulse('introRing1', it, 0.4, 1.8, 0.75, 1.6, .55);
   pulse('introRing2', it, 1.2, 1.8, 0.75, 1.6, .55);
 
-  // route: truck drives from Iran (right) toward Afghanistan (left)
-  const r = sceneOf('route'), rl = t - r.start;
-  const path = document.getElementById('routePath'), L = path.getTotalLength();
-  const rp = path.getPointAtLength(L * clamp((rl - 1.2) / 2.6));
-  const dot = document.getElementById('routeDot'); dot.setAttribute('cx', rp.x); dot.setAttribute('cy', rp.y);
-  path.style.strokeDashoffset = rl * 40;
-  const tp = easeInOut(clamp((rl - 0.6) / (r.dur - 0.6)));
-  document.getElementById('routeTruck').style.transform = `translateX(${lerp(960, 10, tp)}px) translateY(${Math.sin(rl * 18) * 1.5}px)`;
-  document.getElementById('roadDash').style.backgroundPosition = `${rl * 260}px 0`;
-  document.querySelectorAll('#routeTruck .wheel').forEach(w => w.setAttribute('transform', `rotate(${rl * 600} ${w.dataset.cx} ${w.dataset.cy})`));
+  // route map: arcs from Tehran fan out to Afghan cities
+  const rl = t - sceneOf('route').start;
+  ROUTES.forEach(R => {
+    const q = easeInOut(clamp((rl - R.start) / 1.0));
+    R.path.setAttribute('stroke-dashoffset', R.L * (1 - q));
+    const on = clamp((rl - R.start - 0.9) / 0.3);
+    R.dot.setAttribute('opacity', on); R.lbl.setAttribute('opacity', on);
+    R.dot.setAttribute('r', 9 + 4 * Math.max(0, Math.sin((rl - R.start) * 4)) * on);
+  });
+  const R0 = ROUTES[0], rq = ((rl - R0.start - 1.2) % 1.6 + 1.6) % 1.6 / 1.6;
+  const rp = R0.path.getPointAtLength(R0.L * rq);
+  ROUTE_RUNNER.setAttribute('cx', rp.x); ROUTE_RUNNER.setAttribute('cy', rp.y);
+  ROUTE_RUNNER.setAttribute('opacity', rl > R0.start + 1.2 ? Math.sin(rq * Math.PI) : 0);
+  const tq = loopPulse(rl, 0, 1.5);
+  TEHRAN_RING.setAttribute('r', 14 + (tq || 0) * 40); TEHRAN_RING.setAttribute('opacity', (1 - (tq || 0)) * .9);
 
   pulse('brRing', t - sceneOf('brand').start, 0.3, 2.0, 0.8, 1.3, .5);
 
-  const cs = sceneOf('cities'), cl = t - cs.start;
-  const cp = document.getElementById('cityPath'), cpl = document.getElementById('cityPathLit'), CL = cp.getTotalLength();
-  const prog = easeInOut(clamp((cl - CITY_T[0] + 0.4) / (CITY_T[3] - CITY_T[0] + 0.7)));
-  cpl.style.strokeDasharray = `${CL}`; cpl.style.strokeDashoffset = `${CL * (1 - prog)}`;
-  const tq = cp.getPointAtLength(CL * prog), tk = document.getElementById('cityTruck');
-  tk.style.left = tq.x + 'px'; tk.style.top = tq.y + 'px'; tk.style.opacity = clamp((cl - CITY_T[0] + 0.8) / 0.4);
-
+  // cities on the Afghanistan map
+  const cl = t - sceneOf('cities').start;
+  AFG_ARROW.setAttribute('stroke-dashoffset', -cl * 40);
+  AFG_PINS.forEach(({ g, pin, t: pt }) => {
+    const q = clamp((cl - pt) / 0.7);
+    g.setAttribute('opacity', clamp(q * 3));
+    g.setAttribute('transform', `translate(0 ${lerp(-260, 0, easeOutBack(q))})`);
+  });
   const cl2 = t - sceneOf('contact').start;
   pulse('cRing1', cl2, 0, 1.4, 1, 1.9, .7);
   pulse('cRing2', cl2, 0.7, 1.4, 1, 1.9, .7);
